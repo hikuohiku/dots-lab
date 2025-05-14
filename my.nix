@@ -14,6 +14,8 @@ in
     sd
     bat
     dua
+    dust
+    lnav
     ranger
     gh
     grc
@@ -22,6 +24,7 @@ in
     ruff
     nodejs_23
     lua-language-server
+    nixfmt
 
     (stdenv.mkDerivation {
       pname = "copy-to-client-clipboard";
