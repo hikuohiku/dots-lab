@@ -131,6 +131,7 @@ in
           colorArg = "always";
           pager = "delta --paging=never --line-numbers --hyperlinks --hyperlinks-file-link-format='lazygit-edit://{path}:{line}'";
         };
+        os.editPreset = "nvim";
       };
     };
     zellij.enable = true;
