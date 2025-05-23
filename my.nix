@@ -67,7 +67,10 @@ in {
         "-" = "prevd";
         "+" = "nextd";
       };
-      functions = { nr = "nix run nixpkgs#$argv[1] -- $argv[2..]"; };
+      functions = {
+        nr = "nix run nixpkgs#$argv[1] -- $argv[2..]";
+        ib = ''bash -c "$argv"'';
+      };
       plugins = [
         {
           name = "z";
