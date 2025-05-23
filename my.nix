@@ -45,8 +45,8 @@ in {
   programs = {
     fish = {
       enable = true;
+      shellAliases = { ls = "eza --color=auto --icons"; };
       shellAbbrs = {
-        ls = "eza --color=auto --icons";
         l = "eza --color=auto --icons -lah";
         ll = "eza --color=auto --icons -l";
         la = "eza --color=auto --icons -a";
