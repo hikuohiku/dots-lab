@@ -4,8 +4,7 @@ let
     git.username = "hikuohiku";
     git.email = "hikuohiku@gmail.com";
   };
-in
-{
+in {
   home.packages = with pkgs; [
     neovim
     gomi
@@ -30,14 +29,15 @@ in
       pname = "copy-to-client-clipboard";
       version = "latest";
       src = fetchurl {
-      	url = "https://raw.githubusercontent.com/libapps/libapps-mirror/main/hterm/etc/osc52.sh";
-	hash = "sha256-LVsQFVY0YL2ZtksZ0aPBYFujZyHLzbhJzp9oTZHXWTw=";
+        url =
+          "https://raw.githubusercontent.com/libapps/libapps-mirror/main/hterm/etc/osc52.sh";
+        hash = "sha256-LVsQFVY0YL2ZtksZ0aPBYFujZyHLzbhJzp9oTZHXWTw=";
       };
       dontUnpack = true;
       installPhase = ''
-        mkdir -p $out/bin
-	install -D $src $out/bin/copy
-	chmod +x $out/bin/copy
+                mkdir -p $out/bin
+        	install -D $src $out/bin/copy
+        	chmod +x $out/bin/copy
       '';
     })
   ];
@@ -67,9 +67,7 @@ in
         "-" = "prevd";
         "+" = "nextd";
       };
-      functions = {
-          nr = "nix run nixpkgs#$argv[1] -- $argv[2..]";
-      };
+      functions = { nr = "nix run nixpkgs#$argv[1] -- $argv[2..]"; };
       plugins = [
         {
           name = "z";
@@ -110,17 +108,13 @@ in
       userName = userInfo.git.username;
       userEmail = userInfo.git.email;
       extraConfig = {
-        init = {
-          defaultBranch = "main";
-        };
+        init = { defaultBranch = "main"; };
         pull.rebase = true;
         fetch.prune = true;
       };
       delta = {
         enable = true;
-        options = {
-          dark = false;
-        };
+        options = { dark = false; };
       };
     };
     lazygit = {
@@ -129,7 +123,8 @@ in
         gui.language = "ja";
         git.paging = {
           colorArg = "always";
-          pager = "delta --paging=never --line-numbers --hyperlinks --hyperlinks-file-link-format='lazygit-edit://{path}:{line}'";
+          pager =
+            "delta --paging=never --line-numbers --hyperlinks --hyperlinks-file-link-format='lazygit-edit://{path}:{line}'";
         };
         os.editPreset = "nvim";
       };
@@ -137,7 +132,5 @@ in
     zellij.enable = true;
   };
 
-  home.sessionVariables = {
-    PAGER = "bat";
-  };
+  home.sessionVariables = { PAGER = "bat"; };
 }
